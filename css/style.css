@@ -61,64 +61,113 @@
         }
         
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            margin-top: 70px;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffab40" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.4;
-        }
-        
-        .hero-tagline {
-            font-size: 1.2rem;
-            color: #ff9800;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero-image {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
-        }
+
+.hero {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f4f0 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%238bc34a" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: #8bc34a;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.hero-download-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.store-btn {
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.store-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.store-btn img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-photo {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-download-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
         
         /* Features Section */
         .features {
