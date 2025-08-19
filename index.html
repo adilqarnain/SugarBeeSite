@@ -9,11 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        /* Hide the Google Translate widget container */
+        #google_translate_element {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Google Translate Element Container -->
+    <div id="google_translate_element"></div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -39,6 +47,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <!-- Language Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe"></i> Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ur')">اردو</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ms')">Bahasa Melayu</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <a href="#download" class="btn-download">Download App</a>
@@ -332,11 +351,43 @@
         </div>
     </footer>
 
+    <!-- Google Translate Script -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JavaScript -->
     <script>
+        // Initialize Google Translate
+        function googleTranslateElementInit() {
+            try {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,ur,ms',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+            } catch (e) {
+                console.error('Error initializing Google Translate:', e);
+            }
+        }
+
+        // Change Language Function
+        function changeLanguage(lang) {
+            try {
+                const select = document.querySelector('select.goog-te-combo');
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                } else {
+                    console.warn('Google Translate select element not found. Ensure Google Translate script is loaded.');
+                }
+            } catch (e) {
+                console.error('Error changing language:', e);
+            }
+        }
+
         // Feature accordion toggle
         function toggleFeature(element) {
             const featureItem = element.parentElement;
@@ -447,7 +498,6 @@
         // Download and interaction functions
         function downloadApp() {
             alert('Redirecting to app stores...\n\nFor iOS: App Store\nFor Android: Google Play Store');
-            // In a real implementation, you would redirect to actual app store links
         }
 
         function upgradeToPro() {
@@ -456,17 +506,14 @@
 
         function downloadIOS() {
             alert('Redirecting to App Store...\n\nYou will be taken to the SugarBee app page on the App Store.');
-            // window.open('https://apps.apple.com/app/sugarbee', '_blank');
         }
 
         function downloadAndroid() {
             alert('Redirecting to Google Play Store...\n\nYou will be taken to the SugarBee app page on Google Play.');
-            // window.open('https://play.google.com/store/apps/details?id=com.sugarbee', '_blank');
         }
 
         function openSocial(platform) {
             alert(`Opening ${platform.charAt(0).toUpperCase() + platform.slice(1)}...\n\nYou will be redirected to our ${platform} page.`);
-            // In real implementation, add actual social media links
         }
 
         function showHelp() {
