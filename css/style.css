@@ -59,6 +59,64 @@
             color: white;
         }
 
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-current {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #FF6B35;
+            font-weight: 500;
+        }
+
+        .language-current:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #FF6B35;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            min-width: 150px;
+            display: none;
+            z-index: 1001;
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .language-option {
+            display: block;
+            padding: 0.7rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border-radius: 8px;
+            margin: 0.2rem;
+        }
+
+        .language-option:hover {
+            background-color: #f8f9fa;
+            color: #FF6B35;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #fff8f5 0%, #ffede0 100%);
@@ -193,6 +251,43 @@
 
         .feature-item.active .feature-content {
             display: block;
+        }
+
+        .feature-visual {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-image {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e0e0e0;
+            flex-shrink: 0;
+        }
+
+        .feature-image svg {
+            width: 80px;
+            height: 60px;
         }
 
         .feature-content p {
@@ -486,6 +581,15 @@
             
             .btn-download {
                 margin-top: 1rem;
+            }
+
+            .feature-visual {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-image {
+                align-self: center;
             }
         }
 

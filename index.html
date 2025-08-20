@@ -9,19 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <style>
-        /* Hide the Google Translate widget container */
-        #google_translate_element {
-            display: none;
-        }
-    </style>
+     <link rel="stylesheet" type="text/css" href="css/style.css">
+  
 </head>
 
 <body>
-    <!-- Google Translate Element Container -->
-    <div id="google_translate_element"></div>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -48,16 +40,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <!-- Language Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-globe"></i> Language
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ur')">اردو</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ms')">Bahasa Melayu</a></li>
-                        </ul>
+                    <!-- Language Selector -->
+                    <li class="nav-item">
+                        <div class="language-selector">
+                            <a href="#" class="language-current" onclick="toggleLanguageDropdown(event)">
+                                <i class="fas fa-globe"></i>
+                                <span id="currentLang">English</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="language-dropdown" id="languageDropdown">
+                                <a href="#" class="language-option" onclick="changeLanguage('en', 'English')">English</a>
+                                <a href="#" class="language-option" onclick="changeLanguage('ur', 'اردو')">اردو</a>
+                                <a href="#" class="language-option" onclick="changeLanguage('ms', 'Bahasa Melayu')">Bahasa Melayu</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
                 <a href="#download" class="btn-download">Download App</a>
@@ -116,6 +112,20 @@
                                 <i class="fas fa-chevron-up"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="60" fill="#f8f9fa" rx="5"/>
+                                            <rect x="10" y="10" width="80" height="8" fill="#FF6B35" rx="2"/>
+                                            <rect x="10" y="25" width="35" height="6" fill="#8BC34A" rx="1"/>
+                                            <rect x="55" y="25" width="35" height="6" fill="#FFA726" rx="1"/>
+                                            <rect x="10" y="40" width="60" height="6" fill="#e0e0e0" rx="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Your diabetes information on-the-go. Add insulin, activity, carbs, even photos, anytime, anywhere.</p>
                             </div>
                         </div>
@@ -126,6 +136,21 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-wifi"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="20" y="20" width="25" height="20" fill="#4285f4" rx="3"/>
+                                            <rect x="55" y="15" width="20" height="30" fill="#333" rx="8"/>
+                                            <path d="M47 30 L53 30" stroke="#8BC34A" stroke-width="2"/>
+                                            <circle cx="35" cy="15" r="2" fill="#4285f4"/>
+                                            <circle cx="35" cy="12" r="1" fill="#4285f4" opacity="0.7"/>
+                                            <circle cx="35" cy="9" r="1" fill="#4285f4" opacity="0.4"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Connect your blood glucose meter for automatic data syncing and eliminate manual entry of your readings.</p>
                             </div>
                         </div>
@@ -136,6 +161,20 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="60" fill="#f8f9fa" rx="5"/>
+                                            <polyline points="10,50 25,35 40,25 55,30 70,20 85,25" stroke="#FF6B35" stroke-width="3" fill="none"/>
+                                            <polyline points="10,45 25,40 40,35 55,40 70,30 85,35" stroke="#8BC34A" stroke-width="2" fill="none"/>
+                                            <line x1="10" y1="55" x2="90" y2="55" stroke="#e0e0e0" stroke-width="1"/>
+                                            <line x1="10" y1="10" x2="10" y2="55" stroke="#e0e0e0" stroke-width="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Visualize your glucose trends with detailed graphs and charts to understand patterns in your diabetes management.</p>
                             </div>
                         </div>
@@ -146,6 +185,21 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="60" fill="#f8f9fa" rx="5"/>
+                                            <circle cx="50" cy="30" r="20" stroke="#8BC34A" stroke-width="4" fill="none"/>
+                                            <text x="50" y="27" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">A1c</text>
+                                            <text x="50" y="38" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#8BC34A">7.2%</text>
+                                            <rect x="15" y="10" width="20" height="3" fill="#FF6B35" rx="1"/>
+                                            <rect x="65" y="10" width="20" height="3" fill="#FFA726" rx="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Get estimated A1c calculations based on your glucose readings to track your long-term diabetes control.</p>
                             </div>
                         </div>
@@ -156,6 +210,22 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-share-alt"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="20" y="15" width="25" height="30" fill="white" stroke="#e0e0e0" rx="2"/>
+                                            <rect x="55" y="15" width="25" height="30" fill="white" stroke="#e0e0e0" rx="2"/>
+                                            <text x="32" y="25" text-anchor="middle" font-family="Arial" font-size="6" fill="#333">PDF</text>
+                                            <text x="67" y="25" text-anchor="middle" font-family="Arial" font-size="6" fill="#333">Excel</text>
+                                            <rect x="23" y="28" width="18" height="2" fill="#8BC34A" rx="1"/>
+                                            <rect x="58" y="28" width="18" height="2" fill="#4CAF50" rx="1"/>
+                                            <path d="M50 35 L45 30 M50 35 L55 30" stroke="#FF6B35" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Generate and share comprehensive reports with your healthcare team in PDF and Excel formats.</p>
                             </div>
                         </div>
@@ -166,6 +236,21 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="60" fill="#f8f9fa" rx="5"/>
+                                            <polygon points="50,10 55,25 70,25 58,35 63,50 50,40 37,50 42,35 30,25 45,25" fill="#FFD700"/>
+                                            <circle cx="25" cy="20" r="8" fill="#8BC34A"/>
+                                            <text x="25" y="24" text-anchor="middle" font-family="Arial" font-size="8" fill="white">✓</text>
+                                            <circle cx="75" cy="20" r="8" fill="#FF6B35"/>
+                                            <text x="75" y="24" text-anchor="middle" font-family="Arial" font-size="6" fill="white">3/7</text>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Stay motivated with fun challenges and achievements that make diabetes management more engaging.</p>
                             </div>
                         </div>
@@ -176,6 +261,20 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="60" fill="#f8f9fa" rx="5"/>
+                                            <path d="M50 10 C35 15, 35 25, 35 40 C35 45, 40 50, 50 50 C60 50, 65 45, 65 40 C65 25, 65 15, 50 10 Z" fill="#4CAF50"/>
+                                            <path d="M45 30 L48 33 L55 26" stroke="white" stroke-width="2" fill="none"/>
+                                            <rect x="20" y="45" width="60" height="3" fill="#8BC34A" rx="1"/>
+                                            <rect x="25" y="40" width="50" height="2" fill="#e0e0e0" rx="1"/>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Your health data is protected with enterprise-grade security and encryption for complete peace of mind.</p>
                             </div>
                         </div>
@@ -186,6 +285,23 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="feature-content">
+                                <div class="feature-visual">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-syringe"></i>
+                                    </div>
+                                    <div class="feature-image">
+                                        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="60" fill="#f8f9fa" rx="5"/>
+                                            <circle cx="50" cy="30" r="18" stroke="#FF6B35" stroke-width="3" fill="none"/>
+                                            <text x="50" y="25" text-anchor="middle" font-family="Arial" font-size="8" fill="#333">Carbs: 45g</text>
+                                            <text x="50" y="35" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#FF6B35">8 units</text>
+                                            <rect x="15" y="15" width="12" height="4" fill="#8BC34A" rx="1"/>
+                                            <rect x="73" y="15" width="12" height="4" fill="#FFA726" rx="1"/>
+                                            <text x="21" y="12" text-anchor="middle" font-family="Arial" font-size="4" fill="#666">BG</text>
+                                            <text x="79" y="12" text-anchor="middle" font-family="Arial" font-size="4" fill="#666">Target</text>
+                                        </svg>
+                                    </div>
+                                </div>
                                 <p>Calculate insulin doses accurately with our intelligent bolus calculator that learns from your patterns.</p>
                             </div>
                         </div>
@@ -351,42 +467,91 @@
         </div>
     </footer>
 
-    <!-- Google Translate Script -->
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JavaScript -->
     <script>
-        // Initialize Google Translate
-        function googleTranslateElementInit() {
-            try {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'en,ur,ms',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
-                }, 'google_translate_element');
-            } catch (e) {
-                console.error('Error initializing Google Translate:', e);
+        // Translation data
+        const translations = {
+            en: {
+                'Welcome to SugarBee®': 'Welcome to SugarBee®',
+                'Simplifying life with diabetes': 'Simplifying life with diabetes',
+                'The diabetes management app made for people with diabetes by people with diabetes. Together, we make diabetes suck less!': 'The diabetes management app made for people with diabetes by people with diabetes. Together, we make diabetes suck less!',
+                'What\'s in it for you': 'What\'s in it for you',
+                'Explore the SugarBee app': 'Explore the SugarBee app'
+            },
+            ur: {
+                'Welcome to SugarBee®': 'SugarBee® میں خوش آمدید',
+                'Simplifying life with diabetes': 'ذیابیطس کے ساتھ زندگی کو آسان بنانا',
+                'The diabetes management app made for people with diabetes by people with diabetes. Together, we make diabetes suck less!': 'ذیابیطس کے مریضوں کے لیے ذیابیطس کے مریضوں کی طرف سے بنائی گئی ایپ۔ مل کر، ہم ذیابیطس کو کم تکلیف دہ بناتے ہیں!',
+                'What\'s in it for you': 'آپ کے لیے کیا فائدہ ہے',
+                'Explore the SugarBee app': 'SugarBee ایپ کو دریافت کریں'
+            },
+            ms: {
+                'Welcome to SugarBee®': 'Selamat datang ke SugarBee®',
+                'Simplifying life with diabetes': 'Memudahkan hidup dengan diabetes',
+                'The diabetes management app made for people with diabetes by people with diabetes. Together, we make diabetes suck less!': 'Aplikasi pengurusan diabetes yang dibuat oleh pesakit diabetes untuk pesakit diabetes. Bersama-sama, kami menjadikan diabetes kurang menyusahkan!',
+                'What\'s in it for you': 'Apa yang ada untuk anda',
+                'Explore the SugarBee app': 'Terokai aplikasi SugarBee'
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        // Language Functions
+        function toggleLanguageDropdown(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function changeLanguage(langCode, langName) {
+            currentLanguage = langCode;
+            document.getElementById('currentLang').textContent = langName;
+            document.getElementById('languageDropdown').classList.remove('show');
+            
+            // Apply translations
+            applyTranslations(langCode);
+        }
+
+        function applyTranslations(langCode) {
+            if (langCode === 'en') return; // No translation needed for English
+            
+            const trans = translations[langCode];
+            if (!trans) return;
+            
+            // Update specific elements
+            const heroTagline = document.querySelector('.hero-tagline');
+            const heroTitle = document.querySelector('.hero-content h1');
+            const heroDescription = document.querySelector('.hero-content p');
+            const sectionTitle = document.querySelector('#features .section-title');
+            const sectionSubtitle = document.querySelector('#features h3');
+            
+            if (heroTagline && trans[heroTagline.textContent]) {
+                heroTagline.textContent = trans[heroTagline.textContent];
+            }
+            if (heroTitle && trans[heroTitle.textContent]) {
+                heroTitle.textContent = trans[heroTitle.textContent];
+            }
+            if (heroDescription && trans[heroDescription.textContent]) {
+                heroDescription.textContent = trans[heroDescription.textContent];
+            }
+            if (sectionTitle && trans[sectionTitle.textContent]) {
+                sectionTitle.textContent = trans[sectionTitle.textContent];
+            }
+            if (sectionSubtitle && trans[sectionSubtitle.textContent]) {
+                sectionSubtitle.textContent = trans[sectionSubtitle.textContent];
             }
         }
 
-        // Change Language Function
-        function changeLanguage(lang) {
-            try {
-                const select = document.querySelector('select.goog-te-combo');
-                if (select) {
-                    select.value = lang;
-                    select.dispatchEvent(new Event('change'));
-                } else {
-                    console.warn('Google Translate select element not found. Ensure Google Translate script is loaded.');
-                }
-            } catch (e) {
-                console.error('Error changing language:', e);
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                document.getElementById('languageDropdown').classList.remove('show');
             }
-        }
+        });
 
         // Feature accordion toggle
         function toggleFeature(element) {
@@ -598,6 +763,6 @@
 
         // Call update function after DOM is loaded
         document.addEventListener('DOMContentLoaded', updateAriaAttributes);
-    </script>
+         </script>
 </body>
 </html>
